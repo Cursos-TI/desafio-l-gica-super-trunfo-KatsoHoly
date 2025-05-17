@@ -1,43 +1,99 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
-
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+    int carta1 = 1;
+    int carta2 = 2;
+    int opcao;
+    int resultado1, resultado2;
 
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    // Dados da cidade (carta 1)
+    char estado1 = 'B';
+    char codigoCarta1[20] = "B13";
+    char nomeCidade1[20] = "SALVADOR";
+    int populacao1 = 508826;
+    float area1 = 55.4;
+    float pib1 = 25000.0;
+    int turismo1 = 25;
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    // Dados da cidade (carta 2)
+    char estado2 = 'M';
+    char codigoCarta2[20] = "M154";
+    char nomeCidade2[20] = "MANAUS";
+    int populacao2 = 515744741;
+    float area2 = 2.9;
+    float pib2 = 25000.0;
+    int turismo2 = 18;
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    // Densidade recebe a populacao divida pela area
+    float densidadePopulacional1 = populacao1 / area1;
+    float densidadePopulacional2 = populacao2 / area2;
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+    // Início do jogo
+    printf("Bem-vindo ao jogo!\n");
+    printf("\n--- Escolha o primeiro atributo para comparar ---\n");
+    printf("1. População\n");
+    printf("2. PIB\n");
+    printf("3. Densidade Populacional (menor vence)\n");
+    printf("Opção: ");
+    scanf("%d", &opcao);
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+    // Selecione qual atributo deseja comparar
+    if (carta1 == carta2) {
+        printf("Você escolheu o mesmo atributo para as duas cartas!\n");
+    } else {
+        switch (opcao) {
+            case 1:
+                printf("Você escolheu: População\n");
+                resultado1 = populacao1 > populacao2 ? 1 : 0;
+                break;
+            case 2:
+                printf("Você escolheu: PIB\n");
+                resultado1 = pib1 > pib2 ? 1 : 0;
+                break;
+            case 3:
+                printf("Você escolheu: Densidade Populacional\n");
+                resultado1 = densidadePopulacional1 < densidadePopulacional2 ? 1 : 0;
+                break;
+            default:
+                printf("Opção inválida!\n");
+            
+        }
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+        printf("\n--- Escolha o segundo atributo para comparar ---\n");
+        printf("1. População\n");
+        printf("2. PIB\n");
+        printf("3. Densidade Populacional (menor vence)\n");
+        printf("Opção: ");
+        scanf("%d", &opcao);
+
+        if (carta2 == carta1) {
+        printf("Você escolheu o mesmo atributo para as duas cartas!\n");
+    } else {
+        switch (opcao) {
+            case 1:
+                printf("Você escolheu: População\n");
+                resultado2 = populacao2 > populacao1 ? 1 : 0;
+                break;
+            case 2:
+                printf("Você escolheu: PIB\n");
+                resultado2 = pib2 > pib1 ? 1 : 0;
+                break;
+            case 3:
+                printf("Você escolheu: Densidade Populacional");
+                resultado2 = densidadePopulacional2 < densidadePopulacional1 ? 1 : 0;
+                break;
+                }
+        }
+
+       // Resultado da compraçao
+        if (resultado1 && resultado2) {
+            printf("Parabéns, você venceu!\n");
+        } else if (resultado1 != resultado2) {
+            printf("Empatou!\n");
+        } else {
+            printf("Infelizmente, você perdeu!\n");
+        }
+    }
 
     return 0;
 }
