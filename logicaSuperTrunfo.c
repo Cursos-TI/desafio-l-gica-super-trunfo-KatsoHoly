@@ -59,7 +59,7 @@ int main() {
             
         }
 
-        printf("\n--- Escolha o segundo atributo para comparar ---\n");
+        printf("Escolha o segundo atributo para comparar\n");
         printf("1. População\n");
         printf("2. PIB\n");
         printf("3. Densidade Populacional (menor vence)\n");
